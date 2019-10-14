@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//java -Dfile.encoding=UTF-8 DictBuild <lexicon_path> <input_path> <output_path>
 public class DictBuild {
     private static class Dict{
         ArrayList<String> dict;
@@ -32,10 +33,13 @@ public class DictBuild {
         ArrayList<String> target = new ArrayList<>();
         String temp = "";
         int count = 0;
-        readFile(dictSource, "work1/lexicon_test.txt");
-        readFile(target, "work1/wsegInput_test.txt");
+        //readFile(dictSource, "work1/lexicon_test.txt");
+        readFile(dictSource, args[0]);
+        //readFile(target, "work1/wsegInput_test.txt");
+        readFile(target, args[1]);
         Dict dict = new Dict(dictSource);
-        PrintWriter writer = new PrintWriter("work1/wsegOutput.txt", StandardCharsets.UTF_8);
+        //PrintWriter writer = new PrintWriter("work1/wsegOutput.txt", StandardCharsets.UTF_8);
+        PrintWriter writer = new PrintWriter(args[2], StandardCharsets.UTF_8);
         pw = writer;
 
         for(String i: target){
